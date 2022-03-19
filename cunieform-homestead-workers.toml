@@ -1,0 +1,13 @@
+app = "cunieform-goeril-workers"
+
+kill_signal = "SIGTERM"
+kill_timeout = 5
+processes = []
+
+[env]
+  SENTRY_APP_NAME="cunieform-goeril-workers"
+  NETWORK="goeril"
+
+[experimental]
+cmd = ["node", "-r", "ts-node/register", "workers/cron.ts"]
+entrypoint = ["node", "-r", "ts-node/register", "workers/cron.ts"]
